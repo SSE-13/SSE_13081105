@@ -1,2 +1,2 @@
 #pic
-![picture](wind.png)
+![picture](wind.jpg)
