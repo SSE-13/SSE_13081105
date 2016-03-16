@@ -52,6 +52,12 @@ var Body = (function () {
             this.vy = -BOUNCE * this.vy;
         }
         //TODO： 左右越界反弹
+        if (this.x + this.width > BOUNDS_RIGHT) {
+            this.vx = -BOUNCE * this.vx;
+            if (this.x + this.width < BOUNDS_RIGHT) {
+                this.vx = -BOUNCE * this.vx;
+            }
+        }
         //根据物体位置更新显示对象属性
         var displayObject = this.displayObject;
         displayObject.x = this.x;
