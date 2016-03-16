@@ -74,9 +74,9 @@ class Body {
 
         //TODO： 左右越界反弹
         if ((this.x + this.width > BOUNDS_RIGHT)||(this.x  < BOUNDS_LEFT)) {
-            this.vx = -1 * this.vx;
+            this.vx = -BOUNCE * this.vx;
         }
-        if(this.y+this.height >= BOUNDS_BOTTOM ){
+        if(this.y+this.height > BOUNDS_BOTTOM ){
             this.vx=F*this.vx;
         }
         
