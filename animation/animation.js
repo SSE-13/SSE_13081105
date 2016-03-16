@@ -3,6 +3,7 @@
  */
 var GRAVITY = 9.8;
 var BOUNDS_BOTTOM = 400;
+var BOUNDS_Top = 0;
 var BOUNDS_LEFT = 0;
 var BOUNDS_RIGHT = 400;
 var BOUNCE = 0.95;
@@ -52,13 +53,16 @@ var Body = (function () {
         if (this.y + this.height > BOUNDS_BOTTOM) {
             this.vy = -BOUNCE * this.vy;
         }
+        /*   if(this.vy){
+               this.y=BOUNDS_BOTTOM-this.height;
+           }*/
         //TODO： 左右越界反弹
         if ((this.x + this.width > BOUNDS_RIGHT) || (this.x < BOUNDS_LEFT)) {
-            this.vx = -BOUNCE * this.vx;
+            this.vx = -BOUNCE * F * this.vx;
         }
-        if (this.y + this.height > BOUNDS_BOTTOM) {
-            this.vx = F * this.vx;
-        }
+        /*   if(this.y+this.height > BOUNDS_BOTTOM ){
+               this.vx=F*this.vx;
+           }*/
         //根据物体位置更新显示对象属性
         var displayObject = this.displayObject;
         displayObject.x = this.x;

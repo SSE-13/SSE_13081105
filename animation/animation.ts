@@ -5,6 +5,8 @@ const GRAVITY = 9.8;
 
 const BOUNDS_BOTTOM = 400;
 
+const BOUNDS_Top = 0;
+
 const BOUNDS_LEFT = 0;
 
 const BOUNDS_RIGHT = 400;
@@ -70,15 +72,18 @@ class Body {
             this.vy = -BOUNCE * this.vy;
             
         }
+     /*   if(this.vy){
+            this.y=BOUNDS_BOTTOM-this.height;
+        }*/
 
 
         //TODO： 左右越界反弹
         if ((this.x + this.width > BOUNDS_RIGHT)||(this.x  < BOUNDS_LEFT)) {
-            this.vx = -BOUNCE * this.vx;
+            this.vx = -BOUNCE *F* this.vx;
         }
-        if(this.y+this.height > BOUNDS_BOTTOM ){
+     /*   if(this.y+this.height > BOUNDS_BOTTOM ){
             this.vx=F*this.vx;
-        }
+        }*/
         
         
         
