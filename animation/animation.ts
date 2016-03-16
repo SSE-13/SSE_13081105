@@ -71,12 +71,12 @@ class Body {
         if (this.y + this.height > BOUNDS_BOTTOM) {
             this.vy = -BOUNCE * this.vy;
             this.y=BOUNDS_BOTTOM-this.height;
+           // this.vx=F*this.vx;
+        }
+       if(this.vy=duringTime * this.vy){
+
             this.vx=F*this.vx;
         }
-    /*   if(this.vy=duringTime * this.vy){
-            this.y=BOUNDS_BOTTOM-this.height;
-            this.vx=F*this.vx;
-        }*/
 
 
         //TODO： 左右越界反弹
