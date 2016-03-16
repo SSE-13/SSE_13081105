@@ -61,9 +61,9 @@ var TextField = (function (_super) {
         _super.apply(this, arguments);
     }
     TextField.prototype.render = function (context) {
-        context.font = "20px Arial";
+        context.font = "10px Arial";
         context.fillStyle = '#FFFFFF';
-        context.fillText('风之旅人', 0, 20);
+        context.fillText('风之旅人', 0, 10);
     };
     return TextField;
 }(DisplayObject));
@@ -96,18 +96,18 @@ function loadResource(imageList, callback) {
 var canvas = document.getElementById("game");
 var context = canvas.getContext("2d");
 var rect = new Rect();
-rect.width = 400;
-rect.height = 200;
+rect.width = 800;
+rect.height = 400;
 rect.color = '#a1ab90';
 var rect2 = new Rect();
-rect2.width = 400;
-rect2.height = 100;
+rect2.width = 800;
+rect2.height = 150;
 //rect2.x = 000;
-rect2.y = 100;
+rect2.y = 250;
 //rect2.rotation = Math.PI / 8;
-rect2.color = '#00FFFF';
+rect2.color = '#d2a494';
 var text = new TextField();
-text.x = 10;
+text.x = 5;
 //var bitmap = new Bitmap();
 //bitmap.source = 'wind.jpg';
 //渲染队列
