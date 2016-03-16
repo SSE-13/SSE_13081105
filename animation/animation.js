@@ -6,6 +6,7 @@ var BOUNDS_BOTTOM = 400;
 var BOUNDS_LEFT = 0;
 var BOUNDS_RIGHT = 400;
 var BOUNCE = 0.95;
+var F = -0.5;
 /**
  * 计时器系统
  */
@@ -50,6 +51,9 @@ var Body = (function () {
         //反弹
         if (this.y + this.height > BOUNDS_BOTTOM) {
             this.vy = -BOUNCE * this.vy;
+        }
+        if (this.y > BOUNDS_BOTTOM) {
+            this.y = BOUNDS_BOTTOM;
         }
         //TODO： 左右越界反弹
         if ((this.x + this.width > BOUNDS_RIGHT) || (this.x < BOUNDS_LEFT)) {
