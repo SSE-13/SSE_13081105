@@ -1,0 +1,2 @@
+#pic
+![picture](wind.png)
