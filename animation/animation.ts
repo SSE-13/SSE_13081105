@@ -9,10 +9,6 @@ const BOUNDS_LEFT = 0;
 
 const BOUNDS_RIGHT = 400;
 
-const BOUNDS_TOP=0;
-
-const F=0.5;
-
 const BOUNCE = 0.95;
 
 /**
@@ -68,13 +64,16 @@ class Body {
         this.y += duringTime * this.vy;
 
         //反弹
+        if (this.y + this.height > BOUNDS_BOTTOM) {
+            this.vy = -BOUNCE * this.vy;
+            
+        }
 
+        //TODO： 左右越界反弹
         if ((this.x + this.width > BOUNDS_RIGHT)||(this.x  < BOUNDS_LEFT)) {
-            this.vx = -BOUNCE * F * this.vx;
+            this.vx = -1 * this.vx;
         }
-        if ((this.y + this.height > BOUNDS_BOTTOM)||(this.y < BOUNDS_TOP)) {
-            this.vy = -BOUNCE * F * this.vy;
-        }
+        
         
         
 
