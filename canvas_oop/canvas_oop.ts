@@ -131,7 +131,6 @@ rect4.x=300;
 rect4.y=200;
 rect4.color='#791a06'
 
-
 var text = new TextField();
 text.x = 5;
 
