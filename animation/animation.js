@@ -5,8 +5,6 @@ var GRAVITY = 9.8;
 var BOUNDS_BOTTOM = 400;
 var BOUNDS_LEFT = 0;
 var BOUNDS_RIGHT = 400;
-var BOUNDS_TOP = 0;
-var F = 0.5;
 var BOUNCE = 0.95;
 /**
  * 计时器系统
@@ -50,11 +48,12 @@ var Body = (function () {
         this.x += duringTime * this.vx;
         this.y += duringTime * this.vy;
         //反弹
-        if ((this.x + this.width > BOUNDS_RIGHT) || (this.x < BOUNDS_LEFT)) {
-            this.vx = -BOUNCE * F * this.vx;
-        }
         if (this.y + this.height > BOUNDS_BOTTOM) {
-            this.vy = -BOUNCE * F * this.vy;
+            this.vy = -BOUNCE * this.vy;
+        }
+        //TODO： 左右越界反弹
+        if ((this.x + this.width > BOUNDS_RIGHT) || (this.x < BOUNDS_LEFT)) {
+            this.vx = -1 * this.vx;
         }
         //根据物体位置更新显示对象属性
         var displayObject = this.displayObject;

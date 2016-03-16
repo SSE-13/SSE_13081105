@@ -11,6 +11,8 @@ const BOUNDS_RIGHT = 400;
 
 const BOUNCE = 0.95;
 
+const F=-0.5;
+
 /**
  * 计时器系统
  */
