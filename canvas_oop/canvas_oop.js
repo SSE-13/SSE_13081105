@@ -96,9 +96,9 @@ function loadResource(imageList, callback) {
 var canvas = document.getElementById("game");
 var context = canvas.getContext("2d");
 var rect = new Rect();
-rect.width = 200;
-rect.height = 100;
-rect.color = '#00FF00';
+rect.width = 400;
+rect.height = 200;
+rect.color = '#a1ab90';
 var rect2 = new Rect();
 rect2.width = 300;
 rect2.height = 50;
@@ -108,12 +108,12 @@ rect2.rotation = Math.PI / 8;
 rect2.color = '#00FFFF';
 var text = new TextField();
 text.x = 10;
-var bitmap = new Bitmap();
-bitmap.source = 'wander-icon.jpg';
+//var bitmap = new Bitmap();
+//bitmap.source = 'wind.jpg';
 //渲染队列
-var renderQueue = [rect, rect2, text, bitmap];
+var renderQueue = [rect, rect2, text /*,bitmap*/];
 //资源加载列表
-var imageList = ['wander-icon.jpg'];
+var imageList = ['wind.jpg'];
 //先加载资源，加载成功之后执行渲染队列
 loadResource(imageList, function () {
     drawQueue(renderQueue);
