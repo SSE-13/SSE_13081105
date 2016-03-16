@@ -141,7 +141,7 @@ bitmap.source = 'back.jpg';
 //渲染队列
 var renderQueue = [bitmap, rect2, text,rect3,rect4];
 //资源加载列表
-var imageList = ['wind.jpg'];
+var imageList = ['back.jpg'];
 
 //先加载资源，加载成功之后执行渲染队列
 loadResource(imageList, function() {

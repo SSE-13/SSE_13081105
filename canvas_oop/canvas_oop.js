@@ -95,10 +95,10 @@ function loadResource(imageList, callback) {
 }
 var canvas = document.getElementById("game");
 var context = canvas.getContext("2d");
-var rect = new Rect();
+/*var rect = new Rect();
 rect.width = 800;
 rect.height = 400;
-rect.color = '#a1ab90';
+rect.color = '#a1ab90'*/
 var rect2 = new Rect();
 rect2.width = 800;
 rect2.height = 150;
@@ -118,21 +118,14 @@ rect4.height = 50;
 rect4.x = 300;
 rect4.y = 200;
 rect4.color = '#791a06';
-var rect5 = new Rect();
-rect5.width = 200;
-rect5.height = 200;
-//rect5.x=400;
-//rect5.y=200;
-rect5.color = '#c7bdb3';
-//rect5.rotation = Math.PI / 4;
 var text = new TextField();
 text.x = 5;
-//var bitmap = new Bitmap();
-//bitmap.source = 'wind.jpg';
+var bitmap = new Bitmap();
+bitmap.source = 'back.jpg';
 //渲染队列
-var renderQueue = [rect, rect5, rect2, text, rect3, rect4 /*,bitmap*/];
+var renderQueue = [bitmap, rect2, text, rect3, rect4];
 //资源加载列表
-var imageList = ['wind.jpg'];
+var imageList = ['back.jpg'];
 //先加载资源，加载成功之后执行渲染队列
 loadResource(imageList, function () {
     drawQueue(renderQueue);
