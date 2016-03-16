@@ -69,11 +69,8 @@ class Body {
         }
 
         //TODO： 左右越界反弹
-        if (this.x + this.width > BOUNDS_RIGHT) {
-            this.vx = -BOUNCE * this.vx;
-            if(this.x + this.width < BOUNDS_RIGHT){
-               this.vx = -BOUNCE * this.vx;          
-            }
+        if ((this.x + this.width > BOUNDS_RIGHT)||(this.x  < BOUNDS_LEFT)) {
+            this.vx = -1 * this.vx;
         }
 
 
@@ -100,6 +97,9 @@ body.height = rect.height;
 body.vx = 5;//需要保证 vx 在 0-50的范围内行为正常
 body.vy = 0;//需要保证 vy 在 0-50的范围内行为正常
 
+//DEBUG
+
+//DEBUG END
 
 var renderCore = new RenderCore();
 var ticker = new Ticker();

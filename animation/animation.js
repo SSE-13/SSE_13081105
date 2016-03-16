@@ -52,11 +52,8 @@ var Body = (function () {
             this.vy = -BOUNCE * this.vy;
         }
         //TODO： 左右越界反弹
-        if (this.x + this.width > BOUNDS_RIGHT) {
-            this.vx = -BOUNCE * this.vx;
-            if (this.x + this.width < BOUNDS_RIGHT) {
-                this.vx = -BOUNCE * this.vx;
-            }
+        if ((this.x + this.width > BOUNDS_RIGHT) || (this.x < BOUNDS_LEFT)) {
+            this.vx = -1 * this.vx;
         }
         //根据物体位置更新显示对象属性
         var displayObject = this.displayObject;
@@ -77,6 +74,8 @@ body.width = rect.width;
 body.height = rect.height;
 body.vx = 5; //需要保证 vx 在 0-50的范围内行为正常
 body.vy = 0; //需要保证 vy 在 0-50的范围内行为正常
+//DEBUG
+//DEBUG END
 var renderCore = new RenderCore();
 var ticker = new Ticker();
 renderCore.start([rect]);
