@@ -103,10 +103,10 @@ var canvas: HTMLCanvasElement = document.getElementById("game") as HTMLCanvasEle
 var context = canvas.getContext("2d");
 
 
-var rect = new Rect();
+/*var rect = new Rect();
 rect.width = 800;
 rect.height = 400;
-rect.color = '#a1ab90'
+rect.color = '#a1ab90'*/
 
 
 var rect2 = new Rect();
@@ -117,14 +117,29 @@ rect2.y = 250;
 //rect2.rotation = Math.PI / 8;
 rect2.color = '#d2a494'
 
+var rect3 =new Rect();
+rect3.width = 20;
+rect3.height = 75;
+rect3.x=400;
+rect3.y=260;
+rect3.color='#791a06'
+
+var rect4 =new Rect();
+rect4.width = 15;
+rect4.height = 50;
+rect4.x=300;
+rect4.y=200;
+rect4.color='#791a06'
+
+
 var text = new TextField();
 text.x = 5;
 
-//var bitmap = new Bitmap();
-//bitmap.source = 'wind.jpg';
+var bitmap = new Bitmap();
+bitmap.source = 'back.jpg';
 
 //渲染队列
-var renderQueue = [rect, rect2, text/*,bitmap*/];
+var renderQueue = [bitmap, rect2, text,rect3,rect4];
 //资源加载列表
 var imageList = ['wind.jpg'];
 

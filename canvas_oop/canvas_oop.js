@@ -106,12 +106,31 @@ rect2.height = 150;
 rect2.y = 250;
 //rect2.rotation = Math.PI / 8;
 rect2.color = '#d2a494';
+var rect3 = new Rect();
+rect3.width = 20;
+rect3.height = 75;
+rect3.x = 400;
+rect3.y = 260;
+rect3.color = '#791a06';
+var rect4 = new Rect();
+rect4.width = 15;
+rect4.height = 50;
+rect4.x = 300;
+rect4.y = 200;
+rect4.color = '#791a06';
+var rect5 = new Rect();
+rect5.width = 200;
+rect5.height = 200;
+//rect5.x=400;
+//rect5.y=200;
+rect5.color = '#c7bdb3';
+//rect5.rotation = Math.PI / 4;
 var text = new TextField();
 text.x = 5;
 //var bitmap = new Bitmap();
 //bitmap.source = 'wind.jpg';
 //渲染队列
-var renderQueue = [rect, rect2, text /*,bitmap*/];
+var renderQueue = [rect, rect5, rect2, text, rect3, rect4 /*,bitmap*/];
 //资源加载列表
 var imageList = ['wind.jpg'];
 //先加载资源，加载成功之后执行渲染队列
