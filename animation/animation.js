@@ -7,7 +7,7 @@ var BOUNDS_Top = 0;
 var BOUNDS_LEFT = 0;
 var BOUNDS_RIGHT = 400;
 var BOUNCE = 0.95;
-var F = -0.5;
+var F = -0.8;
 /**
  * 计时器系统
  */
@@ -52,11 +52,13 @@ var Body = (function () {
         //反弹
         if (this.y + this.height > BOUNDS_BOTTOM) {
             this.vy = -BOUNCE * this.vy;
-        }
-        if (this.vy = duringTime * this.vy) {
             this.y = BOUNDS_BOTTOM - this.height;
             this.vx = F * this.vx;
         }
+        /*   if(this.vy=duringTime * this.vy){
+                this.y=BOUNDS_BOTTOM-this.height;
+                this.vx=F*this.vx;
+            }*/
         //TODO： 左右越界反弹
         if ((this.x + this.width > BOUNDS_RIGHT) || (this.x < BOUNDS_LEFT)) {
             this.vx = -BOUNCE * this.vx;

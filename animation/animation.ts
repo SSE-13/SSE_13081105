@@ -13,7 +13,7 @@ const BOUNDS_RIGHT = 400;
 
 const BOUNCE = 0.95;
 
-const F=-0.5;
+const F=-0.8;
 
 /**
  * 计时器系统
@@ -70,12 +70,13 @@ class Body {
         //反弹
         if (this.y + this.height > BOUNDS_BOTTOM) {
             this.vy = -BOUNCE * this.vy;
-            
-        }
-       if(this.vy=duringTime * this.vy){
             this.y=BOUNDS_BOTTOM-this.height;
             this.vx=F*this.vx;
         }
+    /*   if(this.vy=duringTime * this.vy){
+            this.y=BOUNDS_BOTTOM-this.height;
+            this.vx=F*this.vx;
+        }*/
 
 
         //TODO： 左右越界反弹
