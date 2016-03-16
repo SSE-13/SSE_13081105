@@ -53,12 +53,13 @@ var Body = (function () {
         if (this.y + this.height > BOUNDS_BOTTOM) {
             this.vy = -BOUNCE * this.vy;
         }
-        /*   if(this.vy){
-               this.y=BOUNDS_BOTTOM-this.height;
-           }*/
+        if (this.vy = duringTime * this.vy) {
+            this.y = BOUNDS_BOTTOM - this.height;
+            this.vx = F * this.vx;
+        }
         //TODO： 左右越界反弹
         if ((this.x + this.width > BOUNDS_RIGHT) || (this.x < BOUNDS_LEFT)) {
-            this.vx = -BOUNCE * F * this.vx;
+            this.vx = -BOUNCE * this.vx;
         }
         /*   if(this.y+this.height > BOUNDS_BOTTOM ){
                this.vx=F*this.vx;
