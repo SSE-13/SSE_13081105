@@ -27,12 +27,17 @@ module game {
         }
 
         render(context: CanvasRenderingContext2D) {
-            context.fillStyle = '#0000FF';
             context.strokeStyle = '#FF0000';
             context.beginPath();
             for (var i = 0; i < NUM_COLS; i++) {
                 for (var j = 0; j < NUM_ROWS; j++) {
                     context.rect(i * GRID_PIXEL_WIDTH, j * GRID_PIXEL_HEIGHT, GRID_PIXEL_WIDTH, GRID_PIXEL_HEIGHT);
+                    if(this.grid.getNode(i,j).walkable=false){
+                        context.fillStyle=="#FFFFFF";
+                    }
+                    else{
+                        context.fillStyle = '#0000FF';
+                    }  
                     context.fill();
                     context.stroke();
                 }
