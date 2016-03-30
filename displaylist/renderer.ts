@@ -43,7 +43,7 @@ module render {
             else {
                 //TODO:
                 // GLOBAL_MATRIX = PARENT_GLOBAL_MATRIX * LOCAL_MATRIX
-                this.globalMatrix = localMatrix;
+                this.globalMatrix = setglobalMatrix(localMatrix,parent.globalMatrix);
             }
 
 
@@ -62,7 +62,23 @@ module render {
 
         }
     }
-
+    
+function setglobalMatrix(i:Matrix,j:Matrix):Matrix{
+        
+     
+        
+        var result = new Matrix();
+        result.a = i.a*j.a + i.b*j.c;
+        result.b = i.a*j.b + i.b*j.d;
+        result.c = i.a*j.c + i.c*j.d;
+        result.d = j.b*i.c + j.d*i.d;
+        result.tx = j.a*i.tx + j.c*i.ty + j.tx;
+        result.ty = j.b*i.tx + j.d*i.ty + j.ty; 
+        return result;
+        
+        
+    }
+    
     export class DisplayObjectContainer extends DisplayObject {
 
 
