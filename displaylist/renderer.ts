@@ -41,6 +41,7 @@ module render {
                 this.globalMatrix = localMatrix;
             }
             else {
+                //13081105
                 //TODO:
                 // GLOBAL_MATRIX = PARENT_GLOBAL_MATRIX * LOCAL_MATRIX
                 this.globalMatrix = setglobalMatrix(localMatrix,parent.globalMatrix);
