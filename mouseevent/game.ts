@@ -64,18 +64,17 @@ ticker.start([body]);
 var eventCore = new events.EventCore();
 eventCore.init();
 
-var isHead = 0;
-var isLeg = 0;
+var isHead=0;
+var isLeg=0 ;
 
 var HitTest = (localPoint:math.Point,displayObject:render.DisplayObject) =>{
     // alert (`点击位置为${localPoint.x},${localPoint.y}`);
     console.log(localPoint);
-    if(localPoint.x > 0  && localPoint.x <= 50 && localPoint.y > 0 && localPoint.y <= 50){
-        isHead += 1;
+    if(localPoint.x > 2  && localPoint.x <= 101 && localPoint.y > 14 && localPoint.y <= 105){
+        isHead = 1;
     }
-    if(localPoint.x > -30 && localPoint.x < 10 && localPoint.y > 80 && localPoint.y < 250 
-    || localPoint.x > 40 && localPoint.x < 80 && localPoint.y > 80 && localPoint.y < 250){
-        isLeg += 1;
+    if(localPoint.x > -1 && localPoint.x <123 && localPoint.y > 227 && localPoint.y < 350 ){
+        isLeg = 1;
     }
 
     return true;
@@ -85,28 +84,26 @@ var HitTest = (localPoint:math.Point,displayObject:render.DisplayObject) =>{
 var OnClick = () => {
 
     if(isHead == 1){
-        body.vx *= -1;
-        body.vrotation *= -1;
+        body.vx = -5;
+        body.vrotation = -Math.PI/2;
+        isHead=2;
     }
     
     if(isLeg == 1){
-        if(isHead < 1){
-            isHead = 1;
-        }
         body.vx = 0;
         body.vrotation = 0;
         body.rotation = 0;
     }
 
-    if(isLeg >= 1 && isHead >= 2){
+    if( isHead == 2){
         body.vx = 5;
         body.vrotation = Math.PI/2;
         isHead = 0;
-        isLeg = 0;
+
     }
-  console.log("clickhead:"+isHead);
-  console.log("clickleg:"+ isLeg);
-    
+
+    console.log(isHead);
+    console.log(isLeg);
 
 }
 
