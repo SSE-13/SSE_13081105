@@ -64,17 +64,53 @@ ticker.start([body]);
 var eventCore = new events.EventCore();
 eventCore.init();
 
-var headHitTest = (localPoint:math.Point,displayObject:render.DisplayObject) =>{
-    alert (`点击位置为${localPoint.x},${localPoint.y}`);
+var isHead = 0;
+var isLeg = 0;
+
+var HitTest = (localPoint:math.Point,displayObject:render.DisplayObject) =>{
+    // alert (`点击位置为${localPoint.x},${localPoint.y}`);
+    console.log(localPoint);
+    if(localPoint.x > 0  && localPoint.x <= 50 && localPoint.y > 0 && localPoint.y <= 50){
+        isHead += 1;
+    }
+    if(localPoint.x > -30 && localPoint.x < 10 && localPoint.y > 80 && localPoint.y < 250 
+    || localPoint.x > 40 && localPoint.x < 80 && localPoint.y > 80 && localPoint.y < 250){
+        isLeg += 1;
+    }
+
     return true;
+  
 }
 
-var headOnClick = () => {
-    alert("clicked!!");
-    //修改 HumanBody 的速度，使其反向移动
+var OnClick = () => {
+
+    if(isHead == 1){
+        body.vx *= -1;
+        body.vrotation *= -1;
+    }
+    
+    if(isLeg == 1){
+        if(isHead < 1){
+            isHead = 1;
+        }
+        body.vx = 0;
+        body.vrotation = 0;
+        body.rotation = 0;
+    }
+
+    if(isLeg >= 1 && isHead >= 2){
+        body.vx = 5;
+        body.vrotation = Math.PI/2;
+        isHead = 0;
+        isLeg = 0;
+    }
+  console.log("clickhead:"+isHead);
+  console.log("clickleg:"+ isLeg);
+    
+
 }
 
-eventCore.register(head,headHitTest,headOnClick);
+eventCore.register(head,HitTest,OnClick);
 
 
 
