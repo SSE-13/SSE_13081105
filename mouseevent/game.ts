@@ -44,18 +44,19 @@ renderCore.start(humanContainer, ["left_arm.png","right_arm.png", "left_leg.png"
 
 class HumanBody extends Body {
 
+    vx:number = 5;
+    vrotation = Math.PI/2;
 
     onTicker(duringTime: number) {
 
-         this.x += this.vx*duringTime;
-         this.rotation += Math.PI*duringTime;
+        this.x += this.vx*duringTime;
+        this.rotation += this.vrotation*duringTime;
 
     }
 }
 
 var ticker = new Ticker();
 var body = new HumanBody(humanContainer);
-body.vx = 5;
 body.y = 200; 
 ticker.start([body]);
 
