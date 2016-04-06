@@ -71,7 +71,9 @@ var HitTest = (localPoint:math.Point,displayObject:render.DisplayObject) =>{
     // alert (`点击位置为${localPoint.x},${localPoint.y}`);
     console.log(localPoint);
     if(localPoint.x > 2  && localPoint.x <= 101 && localPoint.y > 14 && localPoint.y <= 105){
-        isHead = 1;
+isHead = 1;
+
+        
     }
     if(localPoint.x > -1 && localPoint.x <123 && localPoint.y > 227 && localPoint.y < 350 ){
         isLeg = 1;
@@ -84,8 +86,8 @@ var HitTest = (localPoint:math.Point,displayObject:render.DisplayObject) =>{
 var OnClick = () => {
 
     if(isHead == 1){
-        body.vx = -5;
-        body.vrotation = -Math.PI/2;
+        body.vx *= -1;
+        body.vrotation *= -1;
         isHead=2;
     }
     
@@ -93,14 +95,15 @@ var OnClick = () => {
         body.vx = 0;
         body.vrotation = 0;
         body.rotation = 0;
-    }
-
-    if( isHead == 2){
-        body.vx = 5;
-        body.vrotation = Math.PI/2;
-        isHead = 0;
 
     }
+
+   if(isLeg == 1&& isHead == 2 ){
+       body.vx = 5;
+       body.vrotation = Math.PI/2;
+       isHead = 0;
+        isLeg=0;
+   }
 
     console.log(isHead);
     console.log(isLeg);
